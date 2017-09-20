@@ -1,0 +1,25 @@
+
+{{error}}
+<div ng-show="user" id="u">
+
+name: {{user.name}} <br />
+company:{{user.company}} <br />
+location:{{user.location}} <br />
+<img ng-src={{user.avatar_url}} alt={{user.name}} />
+<br/>
+Orderby:-<br/>
+<select ng-model="option">
+<option value="name">Name</option>
+<option value="-stargazers_count">ratings</option>
+<option value="language">language</option>
+</select>
+</div>
+<br/>
+
+<table ng-show="user" id="userDetails"> 
+<thead><tr><th>name</th><th>stars</th><th>language</th></tr></thead>
+<tbody>
+<tr ng-repeat="repo in repos |orderBy: option"><td>{{repo.name}}</td><td>{{repo.stargazers_count|number}}</td><td>{{repo.language}}</td></tr>
+</tbody>
+</table>
+
